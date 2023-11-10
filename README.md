@@ -3,7 +3,7 @@ Cording practice intermediate2
 
 [コーディング練習所](https://webdesigner-go.com/coding-practice/)「中級編2」より
 
-架空のゲームサイト
+架空のジムサイト
 - HTML
 - CSS
 - SCSS
