@@ -1,0 +1,1527 @@
+@charset "UTF-8";
+
+.bg {
+  position: relative;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  bottom: -0.125rem;
+  width: 100%;
+  height: 0.25rem;
+  background-color: #EB51C2;
+}
+
+.bg--rotate {
+  transform: rotate(180deg);
+}
+
+.bg__pink {
+  display: block;
+  width: 100%;
+}
+
+.anim__fadeIn {
+  animation: animFadeIn 1s forwards;
+}
+
+.anim__curtain {
+  animation: animCurtain 1.2s forwards;
+}
+
+@keyframes animFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animCurtain {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+
+  50.001% {
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+/* Base Style
+----------------------------------------------------------- */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  background: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header
+----------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.25rem;
+  height: 3.75rem;
+  transition: background-color 0.4s ease;
+  z-index: 500;
+}
+
+.header--bg {
+  background-color: #FFF;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-img {
+  width: 6.0438rem;
+  height: 0.7725rem;
+}
+
+.header__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11.625rem;
+  height: 2.25rem;
+  background-color: #EB51C2;
+  border-radius: 1.125rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.header__to-top {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #FFF;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 1025px) {
+  .header {
+    position: relative;
+    padding: 0 2.1875rem;
+    height: 5.625rem;
+  }
+
+  .header--bg {
+    background-color: unset;
+  }
+
+  .header__logo-img {
+    width: 11.25rem;
+    height: 1.4375rem;
+  }
+
+  .header__link {
+    display: none;
+  }
+
+  .header__to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    display: none;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .header__to-top-img {
+    height: 4.375rem;
+  }
+}
+
+/* Main Visual
+----------------------------------------------------------- */
+.mvisual {
+  position: relative;
+  padding: 10.125rem 1.25rem 0.875rem;
+  z-index: 100;
+}
+
+.mvisual__img {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(50% + 4.9063rem);
+  height: 25.625rem;
+  background-image: url("https://blahiple.github.io/cordingIntermediate2/images/main_visual/bg_mv.webp");
+  background-position: -12rem top;
+  background-size: cover;
+  border-radius: 0 0 0 3.125rem;
+  opacity: 0;
+  z-index: -50;
+}
+
+.mvisual__title {
+  padding: 0 0 0 0.125rem;
+  width: 13.5625rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.625rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #111;
+  z-index: 10;
+}
+
+.mvisual__title-item {
+  position: relative;
+}
+
+.mvisual__title-item:nth-child(1) {
+  width: 13.4375rem;
+  height: 2.75rem;
+}
+
+.mvisual__title-item:nth-child(2) {
+  width: 10.875rem;
+  height: 2.6875rem;
+}
+
+.mvisual__title-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #EB51C2;
+  opacity: 0;
+  z-index: 10;
+}
+
+.mvisual__title-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  opacity: 0;
+  animation-delay: 0.75s;
+}
+
+.mvisual__title-contetnt {
+  display: inline-block;
+}
+
+.mvisual__title-contetnt--pink {
+  margin: 0 0.25rem 0 0.1875rem;
+  font-size: 2.125rem;
+  color: #EB51C2;
+}
+
+.mvisual__subtitle {
+  position: relative;
+  margin-top: 0.625rem;
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #111;
+  z-index: 10;
+}
+
+.mvisual__subtitle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.1875rem;
+  display: block;
+  width: 14.5rem;
+  height: 1.1875rem;
+  background-color: #FFF;
+  z-index: -5;
+}
+
+.mvisual__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13.75rem;
+  height: 2.8125rem;
+  background-color: #EB51C2;
+  border-radius: 1.40625rem;
+  margin: 1.3125rem 0 0 0.0625rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.mvisual__catch {
+  display: block;
+  margin-top: 3.25rem;
+  padding-left: 0.0625rem;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3.5em;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.0178571429;
+  letter-spacing: 0.01em;
+  color: #EB51C2;
+}
+
+.mvisual__catch-sub {
+  display: block;
+  text-align: center;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #111;
+}
+
+.mvisual__catch-sub--pink {
+  color: #EB51C2;
+}
+
+.mvisual__catch-description {
+  margin-top: 1.3125rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #111;
+}
+
+@media screen and (min-width: 600px) {
+  .mvisual {
+    padding: 10.1875rem 3rem 0.875rem;
+  }
+
+  .mvisual__img {
+    width: 70%;
+    background-position: center;
+  }
+
+  .mvisual__catch-description {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .mvisual {
+    margin-top: -5.625rem;
+    padding: 13.75rem 10.0625rem 0.875rem;
+  }
+
+  .mvisual__img {
+    width: calc(50% + 21.25rem);
+    height: 42.5rem;
+    border-radius: 0 0 0 5.625rem;
+  }
+
+  .mvisual__container {
+    margin: 0 auto;
+    max-width: 69.875rem;
+  }
+
+  .mvisual__title {
+    padding: 0 0 0 0.125rem;
+    width: 30rem;
+    font-size: 5.625rem;
+  }
+
+  .mvisual__title-item:nth-child(1) {
+    width: 29.125rem;
+    height: 5.8125rem;
+  }
+
+  .mvisual__title-item:nth-child(1)>.mvisual__title-bg {
+    padding-top: 0.1875rem;
+  }
+
+  .mvisual__title-item:nth-child(2) {
+    width: 22.875rem;
+    height: 5.75rem;
+  }
+
+  .mvisual__title-item:nth-child(2)>.mvisual__title-bg {
+    padding-top: 0.125rem;
+  }
+
+  .mvisual__title-contetnt {
+    display: inline-block;
+  }
+
+  .mvisual__title-contetnt--pink {
+    margin: 0 0.4375rem 0 0.125rem;
+    font-size: 5.3125rem;
+    font-weight: 600;
+    color: #EB51C2;
+  }
+
+  .mvisual__subtitle {
+    margin: 1.625rem 0 0 0.25rem;
+    font-size: 1.75rem;
+  }
+
+  .mvisual__subtitle::after {
+    top: -0.375rem;
+    left: -0.1875rem;
+    width: 29.9375rem;
+    height: 2.5625rem;
+  }
+
+  .mvisual__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23.125rem;
+    height: 5.5625rem;
+    background-color: #EB51C2;
+    border-radius: 2.78125rem;
+    margin: 2.3125rem 0 0 0.25rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.25rem;
+  }
+
+  .mvisual__catch {
+    margin-top: 4.875rem;
+    padding: 0 0.1875rem 0 0;
+    font-size: 6.75em;
+    line-height: 0.9259259259;
+  }
+
+  .mvisual__catch-space {
+    display: none;
+  }
+
+  .mvisual__catch-sub {
+    margin-top: 0.75rem;
+    padding-left: 0.125rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2rem;
+  }
+
+  .mvisual__catch-description {
+    margin-top: 1.5rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2;
+  }
+}
+
+/* About
+----------------------------------------------------------- */
+.about {
+  padding-bottom: 2.5rem;
+}
+
+.about__item:nth-child(2) {
+  margin-top: 2.5rem;
+}
+
+.about__img-container {
+  width: 100%;
+  height: 13.3719rem;
+  overflow: hidden;
+}
+
+.about__img-container--food {
+  height: 13.5rem;
+}
+
+.about__img {
+  transform: translateY(-0.0625rem);
+}
+
+.about__content {
+  position: relative;
+  margin: -0.625rem 1.25rem 0 1.6875rem;
+  padding: 2.5rem 1.875rem 1.4375rem;
+  background-color: #FFF;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  z-index: 10;
+}
+
+.about__title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #EB51C2;
+}
+
+.about__title--food {
+  color: #00B21B;
+}
+
+.about__subtitle {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #111;
+}
+
+.about__subtitle--food {
+  margin-top: 1.1875rem;
+}
+
+.about__description {
+  margin-top: 1.1875rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #111;
+}
+
+.about__description--food {
+  margin-top: 0.8125rem;
+}
+
+.about__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18.75rem;
+  height: 3.3125rem;
+  background-color: #EB51C2;
+  border-radius: 1.65625rem;
+  margin: 2.5625rem auto 0;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+@media screen and (min-width: 600px) {
+  .about__item {
+    position: relative;
+    padding: 2.625rem 1.25rem 0;
+  }
+
+  .about__item:nth-child(2) {
+    margin-top: 5rem;
+  }
+
+  .about__img-container {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 0;
+    width: 37.5rem;
+    height: 21.6875rem;
+  }
+
+  .about__img-container--food {
+    left: initial;
+    right: 0;
+    height: 21.6875rem;
+  }
+
+  .about__content {
+    margin: 0 0 0 auto;
+    width: 24.375rem;
+  }
+
+  .about__content--food {
+    margin-left: initial;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .about {
+    padding-bottom: 3.75rem;
+  }
+
+  .about__container {
+    margin: 0 auto;
+    max-width: 90rem;
+  }
+
+  .about__item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 0.75rem;
+    padding: 0 1.25rem 0;
+    height: 35.625rem;
+  }
+
+  .about__item:nth-child(2) {
+    margin-top: 5rem;
+  }
+
+  .about__img-container {
+    position: absolute;
+    top: 0;
+    bottom: initial;
+    left: 0;
+    width: 59.375rem;
+    height: 34.375rem;
+  }
+
+  .about__img-container--food {
+    left: initial;
+    right: 0;
+    height: 34.375rem;
+  }
+
+  .about__img {
+    transform: translateY(0);
+  }
+
+  .about__content {
+    margin: 0 0 0 auto;
+    padding: 3.75rem 3.75rem 3.5625rem;
+    width: 34.6875rem;
+  }
+
+  .about__content--food {
+    margin-left: initial;
+  }
+
+  .about__title {
+    font-size: 1.5rem;
+  }
+
+  .about__subtitle {
+    margin-top: 0.9375rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .about__subtitle--food {
+    margin-top: 0.9375rem;
+  }
+
+  .about__description {
+    margin-top: 0.875rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  .about__description--food {
+    margin-top: 1.3125rem;
+  }
+
+  .about__link {
+    display: none;
+  }
+}
+
+/* Our Trainer
+----------------------------------------------------------- */
+.trainer {
+  position: relative;
+  padding: 2.5rem 1.3125rem 2.5rem 1.25rem;
+  background-color: #EB51C2;
+}
+
+.trainer__title {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #FFF;
+}
+
+.trainer__subtitle {
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FFF;
+  margin-top: 0.25rem;
+}
+
+.trainer__item {
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 0.625rem;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.trainer__item:not(:first-child) {
+  margin-top: 0.9375rem;
+}
+
+.trainer__img {
+  width: 100%;
+}
+
+.trainer__description {
+  padding: 1.0625rem 1.25rem;
+  height: 6.25rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #111;
+}
+
+.tab {
+  border: none;
+}
+
+.st>.nav {
+  flex-direction: row !important;
+  margin: 1.6875rem auto 0;
+  padding-left: 0.0625rem;
+  box-shadow: none;
+}
+
+.st-theme-basic>.nav .nav-link {
+  padding: 0.5rem 0 0.875rem 0.1875rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.st-theme-basic>.nav .nav-link.active {
+  color: #FFF !important;
+}
+
+.st-theme-basic>.nav .nav-link.active::after {
+  background: #FFF !important;
+}
+
+.st>.tab-content>.tab-pane {
+  padding: 1.3125rem 0 0;
+}
+
+@media screen and (min-width: 600px) {
+  .trainer__item {
+    max-width: 19.8125rem;
+    max-height: 25.4375rem;
+  }
+
+  .trainer__item:not(:first-child) {
+    margin-top: 0;
+  }
+
+  .trainer__description {
+    height: initial;
+  }
+
+  .st>.tab-content>.tab-pane {
+    display: flex;
+    -moz-column-gap: 0.9375rem;
+    column-gap: 0.9375rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .trainer {
+    position: relative;
+    padding: 2.75rem 2rem 2.5rem;
+    background-color: #EB51C2;
+  }
+
+  .trainer__title {
+    display: block;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #FFF;
+    margin: 0 auto;
+    max-width: 69.375rem;
+  }
+
+  .trainer__subtitle {
+    display: block;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FFF;
+    margin: 0.625rem auto 0;
+    max-width: 69.375rem;
+  }
+
+  .trainer__item {
+    width: 22.5rem;
+    max-width: initial;
+    height: 28.9375rem;
+    max-height: initial;
+  }
+
+  .trainer__item:not(:first-child) {
+    margin-top: 0;
+  }
+
+  .trainer__img {
+    width: 100%;
+  }
+
+  .trainer__description {
+    padding: 1.0625rem 1.25rem;
+    height: 7.0625rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .tab {
+    border: none;
+  }
+
+  .st>.nav {
+    flex-direction: row !important;
+    margin: 1.25rem auto 0;
+    padding-left: 0;
+    max-width: 69.375rem;
+  }
+
+  .st-theme-basic>.nav .nav-link {
+    padding: 1.375rem 0;
+    font-size: 1.125rem;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  }
+
+  .st>.tab-content>.tab-pane {
+    justify-content: center;
+    padding: 1.3125rem 0 0;
+  }
+}
+
+/* Studio
+----------------------------------------------------------- */
+.studio {
+  padding: 2.5625rem 1.25rem;
+  overflow: hidden;
+}
+
+.studio__title {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #111;
+}
+
+.studio__subtitle {
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #EB51C2;
+  margin-top: 0.25rem;
+}
+
+.studio__swiper {
+  position: relative;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Pagination */
+.swiper-horizontal>.swiper-pagination-bullets {
+  top: initial;
+  bottom: -1.375rem;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 0.25rem;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  opacity: 1;
+  background: #EAEAEA;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background: #EB51C2;
+}
+
+/* Button */
+.swiper-button-prev,
+.swiper-button-next {
+  top: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #FFF;
+  border-radius: 50%;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("https://blahiple.github.io/cordingIntermediate2/images/studio/studio_slider.svg");
+  background-position: center;
+  background-size: 0.3937rem 0.61rem;
+}
+
+.swiper-button-prev {
+  left: -1.25rem;
+}
+
+.swiper-button-prev:after {
+  transform: rotate(180deg);
+}
+
+.swiper-button-next {
+  right: -1.25rem;
+}
+
+@media screen and (min-width: 1025px) {
+  .studio {
+    padding: 0.875rem 1.25rem 6.0625rem;
+    overflow: hidden;
+  }
+
+  .studio__container {
+    margin: 0 auto;
+    max-width: 75rem;
+  }
+
+  .studio__title {
+    display: block;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #333;
+    padding: 0 2.8125rem;
+  }
+
+  .studio__subtitle {
+    display: block;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #EB51C2;
+    margin-top: 0.25rem;
+    padding: 0 2.8125rem;
+  }
+
+  .studio__container-swiper {
+    width: 100%;
+    padding: 0 2.8125rem;
+    overflow: hidden;
+  }
+
+  .studio__swiper {
+    position: relative;
+    margin-top: 2.5625rem;
+    width: 100%;
+  }
+
+  /* Pagination */
+  .swiper-horizontal>.swiper-pagination-bullets {
+    bottom: -2.375rem;
+  }
+
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 0.8125rem;
+    height: 0.8125rem;
+  }
+
+  /* Button */
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: calc(50% - 1.125rem);
+    width: 4.9375rem;
+    height: 4.9375rem;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    background-size: 0.6875rem auto;
+  }
+
+  .swiper-button-prev {
+    left: -2.625rem;
+  }
+
+  .swiper-button-prev:after {
+    transform: rotate(180deg);
+  }
+
+  .swiper-button-next {
+    right: -2.625rem;
+  }
+}
+
+/* Price
+----------------------------------------------------------- */
+.price {
+  position: relative;
+  padding: 2.5rem 0 2.5rem;
+  background-color: #EB51C2;
+}
+
+.price__arrow-description {
+  transform: translateY(-0.25rem);
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.price__container {
+  padding: 0 1.25rem 0;
+}
+
+.price__title {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #FFF;
+}
+
+.price__subtitle {
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FFF;
+  margin-top: 0.25rem;
+}
+
+.price__scroll {
+  display: flex;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  margin: 0.4375rem auto 0;
+  padding: 1.5rem 1.25rem 0;
+  overflow-x: scroll;
+}
+
+.price__arrow {
+  position: absolute;
+  top: 21.25rem;
+  right: 1.625rem;
+  padding-top: 0.375rem;
+  width: 5rem;
+  height: 4.375rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0.25rem;
+  z-index: 100;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.price__arrow--hide {
+  opacity: 0;
+}
+
+.price__item {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 2.4375rem 1.2188rem 0 1.2813rem;
+  width: 18.125rem;
+  height: 30.75rem;
+  background-color: #FFF;
+  border-radius: 0.625rem;
+}
+
+.price__recommend {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16rem;
+  height: 2.8125rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #EB51C2;
+  background-color: #FFF;
+  border: 0.125rem solid #EB51C2;
+  border-radius: 4.375rem;
+}
+
+.price__content:not(:nth-child(4)) {
+  padding-bottom: 1.875rem;
+  border-bottom: 0.0625rem solid #CCC;
+}
+
+.price__content:not(:first-child) {
+  padding-top: 1.8125rem;
+}
+
+.price__content:nth-child(1) {
+  padding-bottom: 1.875rem;
+}
+
+.price__content:nth-child(2) {
+  padding-bottom: 2.1875rem;
+}
+
+.price__content:nth-child(3) {
+  padding-bottom: 1.5625rem;
+}
+
+.price__course-title {
+  text-align: center;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: #EB51C2;
+}
+
+.price__price {
+  margin-top: 1rem;
+  text-align: center;
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #111;
+}
+
+.price__price--small {
+  margin-top: 0.25rem;
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.price__course-subtitle {
+  display: block;
+  text-align: center;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #111;
+}
+
+.price__description {
+  margin-top: 0.625rem;
+  display: block;
+  text-align: center;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+@media screen and (min-width: 600px) {
+  .price__item {
+    position: relative;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 2.4375rem 1.2188rem 0 1.2813rem;
+    width: 21.875rem;
+    background-color: #FFF;
+    border-radius: 0.625rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .price__container {
+    margin: 0 auto;
+    padding: 0 1.25rem 0;
+    max-width: 71.875rem;
+  }
+
+  .price__title {
+    display: block;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #FFF;
+  }
+
+  .price__subtitle {
+    display: block;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FFF;
+  }
+
+  .price__scroll {
+    justify-content: center;
+    -moz-column-gap: 1.875rem;
+    column-gap: 1.875rem;
+    margin: 1.3125rem auto 0;
+    padding: 1.5rem 1.25rem 0;
+    overflow-x: initial;
+  }
+
+  .price__arrow {
+    display: none;
+  }
+
+  .price__item {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 2.4375rem 1.2188rem 0 1.2813rem;
+    width: initial;
+    max-width: 21.875rem;
+    height: 27.3125rem;
+  }
+
+  .price__recommend {
+    transform: translate(-50%, -47%);
+  }
+
+  .price__content:not(:nth-child(4)) {
+    padding-bottom: 1.875rem;
+    border-bottom: 0.0625rem solid #CCC;
+  }
+
+  .price__content:nth-child(1) {
+    padding-top: 0;
+    padding-bottom: 1.1875rem;
+  }
+
+  .price__content:nth-child(2) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.3125rem;
+  }
+
+  .price__content:nth-child(3) {
+    padding-top: 1.1875rem;
+    padding-bottom: 1.3125rem;
+  }
+
+  .price__content:nth-child(4) {
+    padding-top: 1.1875rem;
+  }
+
+  .price__price {
+    margin-top: 0.8125rem;
+  }
+
+  .price__price--small {
+    margin-top: 0;
+    transform: translateY(-0.125rem);
+    font-size: 1.125rem;
+  }
+
+  .price__course-subtitle {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+  }
+
+  .price__description {
+    margin-top: 0.875rem;
+  }
+
+  .price__content:nth-child(3)>.price__description {
+    margin-top: 0.625rem;
+  }
+
+  .price__content:nth-child(4)>.price__description {
+    margin-top: 0.6875rem;
+  }
+}
+
+/* FAQ
+----------------------------------------------------------- */
+.faq {
+  padding: 2.5rem 1.2188rem 3.125rem 1.2813rem;
+}
+
+.faq__title {
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #111;
+}
+
+.faq__subtitle {
+  display: block;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #EB51C2;
+  margin-top: 0.25rem;
+}
+
+.faq__accordion {
+  position: relative;
+  margin-top: 1.8125rem;
+  border-bottom: 0.0625rem solid #CCC;
+}
+
+.faq__accordion:not(:nth-child(3)) {
+  margin-top: 1.3125rem;
+}
+
+.faq__accordion-top {
+  display: flex;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  padding-bottom: 0.875rem;
+}
+
+.faq__accordion-bottom {
+  display: flex;
+  -moz-column-gap: 1.5625rem;
+  column-gap: 1.5625rem;
+  padding: 0.5rem 0 0.8125rem 0.125rem;
+}
+
+.faq__accordion-bottom--hide {
+  display: none;
+}
+
+.faq__accordion-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #EB51C2;
+}
+
+.faq__accordion-title--bottom {
+  margin-top: 0.25rem;
+}
+
+.faq__accordion-description {
+  margin-top: 0.125rem;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #111;
+}
+
+.faq__accordion-description--bottom {
+  margin: 0;
+}
+
+.faq__accordion-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  transform: rotate(180deg);
+}
+
+.faq__accordion-icon--active {
+  transform: rotate(0deg);
+}
+
+@media screen and (min-width: 1025px) {
+  .faq {
+    padding: 2.5rem 1.25rem 3.75rem;
+  }
+
+  .faq__container {
+    margin: 0 auto;
+    max-width: 69.375rem;
+  }
+
+  .faq__title {
+    display: block;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #111;
+  }
+
+  .faq__subtitle {
+    display: block;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #EB51C2;
+    margin-top: 0.25rem;
+  }
+
+  .faq__accordion {
+    margin-top: 2.5625rem;
+  }
+
+  .faq__accordion:not(:nth-child(3)) {
+    margin-top: 1.3125rem;
+  }
+
+  .faq__accordion-top {
+    display: flex;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    padding-bottom: 0.8125rem;
+  }
+
+  .faq__accordion-bottom {
+    display: flex;
+    -moz-column-gap: 1.5625rem;
+    column-gap: 1.5625rem;
+    padding: 0.0625rem 0 0.875rem 0.1875rem;
+  }
+
+  .faq__accordion-bottom--hide {
+    display: none;
+  }
+
+  .faq__accordion-title {
+    margin: 0.0625rem 0 0 0.625rem;
+  }
+
+  .faq__accordion-title--bottom {
+    margin-top: 0;
+  }
+
+  .faq__accordion-description {
+    margin-top: 0;
+  }
+
+  .faq__accordion-description--bottom {
+    margin-top: 0.125rem;
+  }
+
+  .faq__accordion-icon {
+    top: 0.375rem;
+    right: 0.4375rem;
+    width: 0.75rem;
+    height: auto;
+  }
+}
+
+/* Link
+----------------------------------------------------------- */
+.link__img {
+  width: 100%;
+  height: 11.1875rem;
+  vertical-align: bottom;
+  background-image: url("https://blahiple.github.io/cordingIntermediate2/images/link/sp_cta.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.link__container {
+  padding: 2.3125rem 0 0;
+  width: 100%;
+  height: 9.1875rem;
+  background-color: #EB51C2;
+}
+
+.link__catch {
+  display: block;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.link__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18.75rem;
+  height: 3.3125rem;
+  background-color: #FFF;
+  border-radius: 1.65625rem;
+  margin: 0.6875rem auto 0;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #EB51C2;
+}
+
+@media screen and (min-width: 1025px) {
+  .link__img {
+    height: 23.125rem;
+    background-image: url("https://blahiple.github.io/cordingIntermediate2/images/link/sp_cta.webp");
+  }
+
+  .link__container {
+    padding: 4.125rem 0 0;
+    width: 100%;
+    height: 17.4375rem;
+  }
+
+  .link__catch {
+    padding-left: 1.4375rem;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  .link__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22.5rem;
+    height: 5rem;
+    background-color: #FFF;
+    border-radius: 2.5rem;
+    margin: 1.1875rem auto 0;
+    font-size: 1.25rem;
+  }
+}
+
+/* Footer
+----------------------------------------------------------- */
+.footer {
+  padding: 3.0625rem 0 0 0.25rem;
+  height: 6.9375rem;
+  background-color: #111;
+}
+
+.footer__img {
+  display: block;
+  margin: 0 auto 0;
+  width: 5.4375rem;
+}
+
+@media screen and (min-width: 1025px) {
+  .footer {
+    padding: 6.25rem 0 0 0;
+    height: 13.9375rem;
+    background-color: #111;
+  }
+
+  .footer__img {
+    display: block;
+    margin: 0 auto 0;
+    width: 11.25rem;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
